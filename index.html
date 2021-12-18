@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
+<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+<style >
+	* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Mulish', sans-serif; } 
+
+:root { --text-clr: #4f4f4f; } p { color: #6c757d; } 
+
+a { text-decoration: none; color: var(--text-clr); } 
+
+a:hover { text-decoration: none; color: var(--text-clr); } 
+
+h2 { color: var(--text-clr); font-size: 1.5rem; } 
+
+.main_cart { background: #fff; } .card { border: none; } 
+
+.product_img img { min-width: 220px; max-height: 240px; } 
+
+.product_name { color: black; font-size: 1.4rem; text-transform: capitalize; font-weight: 500; } 
+
+.card-title p { font-size: 0.9rem; font-weight: 400; } 
+
+.remove_wish p { font-size: 0.8rem;
+ margin-bottom: 0;
+ } 
+
+.price-money h3 { font-size: 1rem; font-weight: 600; } 
+.itemval span { font-size: 1rem; font-weight: 600; } 
+.set_quantity { position: relative; } 
+
+.set_quantity::after { content: ""; width: auto;
+ height: auto; text-align: center; position: absolute; 
+ bottom: -20px; right: 1.5rem; font-size: 0.8rem; } 
+
+.page-link { line-height: 16px; width: 45px; font-size: 1rem;
+ display: flex; justify-content: center; align-items: center; color: #495057; } 
+
+.page-item input { line-height: 22px; padding: 3px; font-size: 15px;
+ display: flex; justify-content: center; align-items: center; text-align: center; } 
+
+.page-link:hover { text-decoration: none; color: #495057; outline: none !important; } 
+
+.page-link:focus { box-shadow: none; } 
+
+.price_indiv p { font-size: 1.1rem; } 
+
+.fa-heart:hover { color: red; }
+</style>
+</head>
+<body class="bg-light">
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-10 col-11 mx-auto">
+			<div class="row mt-5 gx-3">
+				<!-- left side div -->
+				<div class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5 shadow">
+
+					<div class="card p-4">
+						<h2 class="py-4 font-weight-bold">Cart(2 items)</h2>
+
+
+						<div class="row">
+						 <!-- card image div -->
+						 <div class="col-md-5 col-11 mx-auto bg-light  d-flex justify-content-center align-items-center shadow product_img">
+						 	<img src="image4.jpg" class="img-fluid" alt="image">
+						 </div>
+
+						 <!-- cart product details -->
+
+						 <div class="col-md-7 col-11 mx-auto px-4 mt-2">
+						 	
+						 	<div class="row">
+						 		<!-- product name -->
+						 		<div class="col-6 card-title">
+						 		<h1 class="mb-4 product_name">Paneer</h1>
+						 		<p class="mb-2">Shirt:- Blue</p>
+						 		<p class="mb-2">Color:- Blue</p>
+						 		<p class="mb-3">Size:- M</p>
+						 	    </div>
+
+						 	 <!--  Quntity increment or decrement -->
+				 	    		
+				 	    		<div class="col-6">
+<ul class="pagination justify-content-end set_quantity">
+  <li class="page-item"><button onclick="DecreaseNumber('textbox','itemval')" class="page-link" ><i class="fas fa-minus-circle"></i></button></li>
+  <li class="page-item"><input type="text" name="" value="0" id="textbox" class="page-link"></li>
+  <li class="page-item"><button onclick="IncreaseNumber('textbox','itemval')" class="page-link"><i class="fas fa-plus-circle"></i></button></li>
+  
+</ul>				 	    			
+				 	    			
+				 	    		</div>
+		
+						 	  </div>
+
+
+						 	  <!-- Remove items function UI -->  
+                              <div class="row">
+                              	<div class="col-8 d-flex justify-content-between remove_wish">
+                              		<p><i class="fas fa-trash-alt remove-and-wish"></i>Remove</p>
+                              		<p><i class="fas fa-heart remove-and-wish"></i>Wishlist</p>
+                              	</div>
+
+                              	<div class="col-4 d-flex justify-content-end price-money">
+                              		<h3>₹<span id="itemval">0.00</span></h3>
+                              	</div>
+                              </div>
+
+						 </div>
+
+
+
+						</div>
+					</div>
+					<hr/>
+
+					<!-- 2nd card Ui -->
+						<div class="card p-4">
+						
+
+
+						<div class="row">
+						 <!-- card image div -->
+						 <div class="col-md-5 col-11 mx-auto bg-light  d-flex justify-content-center align-items-center shadow product_img">
+						 	<img src="image6.jpg" class="img-fluid" alt="image">
+						 </div>
+
+						 <!-- cart product details -->
+
+						 <div class="col-md-7 col-11 mx-auto px-4 mt-2">
+						 	
+						 	<div class="row">
+						 		<!-- product name -->
+						 		<div class="col-6 card-title">
+						 		<h1 class="mb-4 product_name">Biryani</h1>
+						 		<p class="mb-2">Shirt:- Green</p>
+						 		<p class="mb-2">Color:- Green</p>
+						 		<p class="mb-3">Size:- M</p>
+						 	    </div>
+
+						 	 <!--  Quntity increment or decrement -->
+				 	    		
+				 	    		<div class="col-6">
+<ul class="pagination justify-content-end set_quantity">
+  <li class="page-item"><button onclick="DecreaseNumber('textbox1','itemval1')" class="page-link" ><i class="fas fa-minus-circle"></i></button></li>
+  <li class="page-item"><input type="text" name="" value="0" id="textbox1" class="page-link"></li>
+  <li class="page-item"><button onclick="IncreaseNumber('textbox1','itemval1')" class="page-link"><i class="fas fa-plus-circle"></i></button></li>
+  
+</ul>				 	    			
+				 	    			
+				 	    		</div>
+		
+						 	  </div>
+
+
+						 	  <!-- Remove items function UI -->  
+                              <div class="row">
+                              	<div class="col-8 d-flex justify-content-between remove_wish">
+                              		<p><i class="fas fa-trash-alt"></i>Remove</p>
+                              		<p><i class="fas fa-heart"></i>Wishlist</p>
+                              	</div>
+
+                              	<div class="col-4 d-flex justify-content-end price-money ">
+                              		<h3>₹<span id="itemval1">0.00</span></h3>
+                              	</div>
+                              </div>
+
+						 </div>
+
+
+
+						</div>
+					</div>
+					
+				</div>
+
+				<!-- //right side div -->
+				<div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
+					<div class="right_side p-3 shadow bg-white">
+						<h2 class="product_name mb-5">The Total Amount of</h2>
+
+						<div class="price_indiv d-flex justify-content-between">
+							<p>Product amount</p>
+							<p>₹<span id="product_total_amt">0.00</span></p>
+						</div>
+						<div class="price_indiv d-flex justify-content-between">
+							<p>Shipping Charge</p>
+							<p>₹<span id="shipping_charge">50.00</span></p>
+						</div>
+
+						<hr/>
+
+						<div class="total-amt d-flex justify-content-between font-weight-bold">
+							<p>The Total amount of </p>
+							<p>₹<span id="total_cart_amt">0.00</span></p>
+						</div>
+
+						<button class="btn btn-primary text-uppercase">Check Out</button>
+
+					</div>
+
+					<!-- Discount code part UI -->
+					<div class="dicount_code mt-3 shadow">
+						<div class="card">
+							<div class="card-body">
+								<a class="d-flex justify-content-between text-decoration-none" data-toggle="collapse"  href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Add a discount code (optional)
+									<span><i class="fas fa-chevron-down pt-1"></i></span>
+								</a>
+
+								<div class="collapse" id="collapseExample">
+
+									<div class="mt-3">
+										<input type="text" id="discount_code1" name="" class="form-control font-weight-bold" placeholder="Enter the discount code">
+
+										<small class="text-dark mt-3" id="error_trw">Code is santosh</small>
+									</div>
+
+									<button class="btn btn-danger btn-sm mt-3" onclick="discount_code()">Apply</button>
+									
+								</div>
+
+
+							</div>
+						</div>
+
+						<!-- Expected Delivery time -->
+						<div class="mt-3 p-3 shadow bg-white">
+							<div class="pt-4">
+								<p class="mb-3"><b>Expected Delivery Date</b> </p>
+								<p class="text-dark">18 December,2021 </p>
+								<hr/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- Popper.js first, then Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript">
+	var product_total_amt=document.getElementById('product_total_amt');
+	var total_cart_amt =document.getElementById('total_cart_amt');
+	var shipping_charge=document.getElementById('shipping_charge');
+	var discount_code1=document.getElementById('discount_code1');
+	var error_trw=document.getElementById('error_trw');
+
+
+
+
+	const DecreaseNumber=(increment_decrement,itemprice)=>{
+		var itemval=document.getElementById(increment_decrement);
+		var itemprice=document.getElementById(itemprice);
+		// console.log(itemval.value);
+		if (itemval.value<=0) {
+			itemval.value=0;
+		}else{
+			itemval.value=parseInt(itemval.value)-1;
+			itemprice.innerHTML=parseInt(itemprice.innerHTML)-50;
+			product_total_amt.innerHTML=parseInt(product_total_amt.innerHTML)-50;
+			total_cart_amt.innerHTML=parseInt(product_total_amt.innerHTML)+parseInt(shipping_charge.innerHTML);
+			itemval.style.background='#fff';
+			itemval.style.color='#000';
+		}
+	}
+    const IncreaseNumber=(increment_decrement,itemprice)=>{
+		var itemval=document.getElementById(increment_decrement);
+		var itemprice=document.getElementById(itemprice);
+		// console.log(itemval.value);
+		if (itemval.value>=5) {
+			itemval.value=5;
+			alert('Max 5 allowed');
+			itemval.style.background='red';
+			itemval.style.color='#fff';
+		}else{
+			itemval.value=parseInt(itemval.value)+1;
+			itemprice.innerHTML=parseInt(itemprice.innerHTML)+50;
+		    product_total_amt.innerHTML=parseInt(product_total_amt.innerHTML)+50;
+		    total_cart_amt.innerHTML=parseInt(product_total_amt.innerHTML)+parseInt(shipping_charge.innerHTML);
+		}
+
+	}
+
+	const discount_code=()=>{
+      let totolamount=parseInt(total_cart_amt.innerHTML);
+      let shipping=parseInt(shipping_charge.innerHTML);
+       if (discount_code1.value==="santosh") {
+     	 let newtotalamount=totolamount-shipping ;
+     	 total_cart_amt.innerHTML=newtotalamount;
+		 error_trw.innerHTML="Hurrey ! your shipping charge is FREE.";
+	}else{
+
+		error_trw.innerHTML="Try Again ! Valid code is santosh .";
+
+	}
+	}
+
+ 
+
+</script>
+</body>
+</html>
